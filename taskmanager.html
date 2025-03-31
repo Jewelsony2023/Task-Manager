@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="taskmanager.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-tasks"></i>
+                <h2>Task Manager</h2>
+            </div>
+            
+            <nav class="menu">
+                <button class="menu-item active">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </button>
+                <button class="menu-item">
+                    <i class="fas fa-calendar"></i>
+                    <span>Calendar</span>
+                </button>
+                <button class="menu-item">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Analytics</span>
+                </button>
+                <button class="menu-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </button>
+            </nav>
+            
+            <div class="stats">
+                <div class="stat-item total-tasks">
+                    <span class="stat-value">0</span>
+                    <span class="stat-label">Total Tasks</span>
+                </div>
+                <div class="stat-item completed-tasks">
+                    <span class="stat-value">0</span>
+                    <span class="stat-label">Completed</span>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="header">
+                <h1>My Tasks</h1>
+                <button class="add-task-btn">
+                    <i class="fas fa-plus"></i>
+                    <span>Add Task</span>
+                </button>
+            </header>
+            
+            <!-- Task Filters -->
+            <div class="task-filters">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search tasks...">
+                </div>
+                <div class="filter-options">
+                    <select id="filterSelect">
+                        <option value="all">All Tasks</option>
+                        <option value="pending">Pending</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                    <select id="sortSelect">
+                        <option value="date">Sort by Date</option>
+                        <option value="priority">Sort by Priority</option>
+                        <option value="title">Sort by Title</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Tasks Container -->
+            <div class="tasks-container">
+                <!-- Tasks will be dynamically added here -->
+            </div>
+        </main>
+    </div>
+    
+    <!-- Task Modal -->
+    <div class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Task</h2>
+                <button class="close-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="taskForm">
+                <div class="form-group">
+                    <label for="taskTitle">Title</label>
+                    <input type="text" id="taskTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="taskDescription">Description</label>
+                    <textarea id="taskDescription" required></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="taskDate">Due Date</label>
+                        <input type="date" id="taskDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="taskPriority">Priority</label>
+                        <select id="taskPriority" required>
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="taskCategory">Category</label>
+                    <select id="taskCategory" required>
+                        <option value="work">Work</option>
+                        <option value="personal">Personal</option>
+                        <option value="shopping">Shopping</option>
+                        <option value="health">Health</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-btn">Cancel</button>
+                    <button type="submit" class="save-btn">Save Task</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script src="taskmanager.js"></script>
+</body>
+</html> 
